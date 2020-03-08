@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyTennisApp</string>
-    <string name="map">Trouvez votre match</string>
-    <string name="photos">Appareil photo</string>
-    <string name="match">Tableau des scores</string>
+    <string name="map">Find your match</string>
+    <string name="photos">Pictures</string>
+    <string name="match">Score Table</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
