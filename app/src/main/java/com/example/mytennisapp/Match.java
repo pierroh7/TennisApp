@@ -4,15 +4,15 @@ public class Match {
     private String teamA, teamB;
     private int scoreA, scoreB;
     private int matchID;
-    private byte[] image;
+    private byte[] matchPicture;
 
-    public Match(String teamA, String teamB, int scoreA, int scoreB, int matchID, byte[] image) {
+    public Match(int matchID, String teamA, String teamB, int scoreA, int scoreB, byte[] matchPicture) {
         this.teamA = teamA;
         this.teamB = teamB;
         this.scoreA = scoreA;
         this.scoreB = scoreB;
         this.matchID = matchID;
-        this.image = image;
+        this.matchPicture = matchPicture;
     }
 
     public String getTeamNameA() {
@@ -55,11 +55,11 @@ public class Match {
         this.matchID = matchID;
     }
 
-    public byte[] getImage() {
-        return image;
+    public byte[] getMatchPicture() {
+        return matchPicture;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setMatchPicture(byte[] image) {
+        this.matchPicture = image;
     }
 }

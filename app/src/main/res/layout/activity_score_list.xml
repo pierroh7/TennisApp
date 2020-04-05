@@ -7,6 +7,7 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingTop="20dp"
+    android:background="@color/background"
     tools:context=".ScoreActivity">
 
     <GridView
@@ -18,9 +19,7 @@
         android:columnWidth="120dp"
         android:gravity="center"
         android:numColumns="auto_fit"
-        >
-
-
-    </GridView>
+        android:background="@color/box_bis"
+        />
 
 </RelativeLayout>

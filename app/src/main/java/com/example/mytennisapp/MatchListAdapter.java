@@ -66,7 +66,7 @@ public class MatchListAdapter extends BaseAdapter {
         holder.team_names.setText(match.getTeamNameA() + " | " + match.getTeamNameB());
         holder.team_scores.setText(match.getScoreA() + " - " + match.getScoreB());
 
-        byte [] matchPicture = match.getImage();
+        byte [] matchPicture = match.getMatchPicture();
         Bitmap bitmap = BitmapFactory.decodeByteArray(matchPicture, 0, matchPicture.length);
         holder.match_picture.setImageBitmap(bitmap);
         return row;

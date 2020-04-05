@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout photo, score;
+    private LinearLayout photo, score, add;
     private TextView match_1, match_2, match_3, match_4, match_5;
 
     @Override
@@ -29,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         photo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,12 +59,15 @@ public class MainActivity extends AppCompatActivity {
         //map = findViewById(R.id.map);
         photo = findViewById(R.id.photo);
         score = findViewById(R.id.score);
+        add = findViewById(R.id.add);
 
         match_1 = findViewById(R.id.match_1);
         match_2 = findViewById(R.id.match_2);
         match_3 = findViewById(R.id.match_3);
         match_4 = findViewById(R.id.match_4);
         match_5 = findViewById(R.id.match_5);
+
+        //À charger en dynamique depuis la BDD
 
         match_1.setText("Lakers  40|60  Bulls   -   Philadelphie");
         match_2.setText("Lakers  40|60  Bulls   -   Philadelphie");
