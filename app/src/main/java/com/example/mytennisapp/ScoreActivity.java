@@ -1,11 +1,18 @@
 package com.example.mytennisapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.service.autofill.FieldClassification;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,5 +48,40 @@ public class ScoreActivity extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();*/
+
+        gridview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                CharSequence[] items = {"Update", "Delete", "Details"};
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ScoreActivity.this);
+
+                dialog.setTitle("Action");
+                dialog.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int item) {
+                        if(item == 0){
+                            //update
+                            //utilise la fonction *update* codée vidéo 2/3 à 3:30
+                        }
+                        else if(item == 1){
+                            //delete
+                            Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            //details
+                            Toast.makeText(getApplicationContext(), "Details", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                dialog.show();
+                return true;
+            }
+        });
+    }
+
+    private void shwoDialogUpdate(Activity activity){
+        Dialog dialog = new Dialog(activity);
+        dialog.setContentView();
     }
 }
