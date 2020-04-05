@@ -4,5 +4,6 @@
     <string name="map">Find your match</string>
     <string name="photos">Pictures</string>
     <string name="match">Score Table</string>
+    <string name="last_matches">Last Matches</string>
     <string name="title_activity_maps">Map</string>
 </resources>

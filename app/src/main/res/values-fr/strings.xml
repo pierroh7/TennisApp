@@ -3,5 +3,6 @@
     <string name="map">Trouvez votre match</string>
     <string name="photos">Appareil photo</string>
     <string name="match">Tableau des scores</string>
+    <string name="last_matches">Derniers Matchs</string>
     <string name="title_activity_maps">Map</string>
 </resources>
