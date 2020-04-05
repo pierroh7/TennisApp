@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MyTennisApp</string>
+    <string name="app_name">MyBasketApp</string>
     <string name="map">Find your match</string>
     <string name="photos">Pictures</string>
     <string name="match">Score Table</string>

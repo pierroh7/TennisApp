@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyTennisApp</string>
+    <string name="app_name">MyBasketApp</string>
     <string name="map">Trouvez votre match</string>
     <string name="photos">Appareil photo</string>
     <string name="match">Tableau des scores</string>

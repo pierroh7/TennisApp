@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout map, photo, score;
+    private LinearLayout photo, score;
     private TextView match_1, match_2, match_3, match_4, match_5;
 
     @Override
@@ -20,23 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        map = findViewById(R.id.map);
-        photo = findViewById(R.id.photo);
-        score = findViewById(R.id.score);
+        init();
 
-        match_1 = findViewById(R.id.match_1);
-        match_2 = findViewById(R.id.match_2);
-        match_3 = findViewById(R.id.match_3);
-        match_4 = findViewById(R.id.match_4);
-        match_5 = findViewById(R.id.match_5);
-
-        map.setOnClickListener(new View.OnClickListener() {
+        /*map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         photo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +46,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void init(){
+        //map = findViewById(R.id.map);
+        photo = findViewById(R.id.photo);
+        score = findViewById(R.id.score);
+
+        match_1 = findViewById(R.id.match_1);
+        match_2 = findViewById(R.id.match_2);
+        match_3 = findViewById(R.id.match_3);
+        match_4 = findViewById(R.id.match_4);
+        match_5 = findViewById(R.id.match_5);
+
         match_1.setText("Lakers  40|60  Bulls   -   Philadelphie");
         match_2.setText("Lakers  40|60  Bulls   -   Philadelphie");
         match_3.setText("Lakers  40|60  Bulls   -   Philadelphie");
         match_4.setText("Lakers  40|60  Bulls   -   Philadelphie");
         match_5.setText("Lakers  40|60  Bulls   -   Philadelphie");
-
     }
 }
