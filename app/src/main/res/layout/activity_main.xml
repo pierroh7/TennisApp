@@ -93,7 +93,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <!-- <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -126,7 +126,7 @@
                     android:text="@string/photos"
                     android:textColor="@color/background"
                     android:textSize="30dp" />
-            </LinearLayout>
+            </LinearLayout> -->
 
             <LinearLayout
                 android:layout_width="match_parent"
