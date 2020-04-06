@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/match_picture"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
 
             <EditText
             android:id="@+id/team_name_a"
@@ -36,8 +37,9 @@
             android:layout_weight="2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:textSize="20dp"
-            android:text="TextView" />
+            android:textColor="@color/background"
+            android:hint="@string/teamA"
+            android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/team_name_b"
@@ -45,8 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginRight="10dp"
-                android:textSize="20dp"
-                android:text="TextView" />
+                android:textColor="@color/background"
+                android:hint="@string/teamB"
+                android:textSize="20dp"/>
 
         </LinearLayout>
 
@@ -55,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/team_names"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
 
             <EditText
                 android:id="@+id/score_team_a"
@@ -64,8 +68,9 @@
                 android:layout_weight="2"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:textColor="@color/text"
                 android:textSize="20dp"
-                android:text="TextView" />
+                android:hint="@string/scoreTeamA" />
 
             <EditText
                 android:id="@+id/score_team_b"
@@ -73,11 +78,65 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginRight="50dp"
+                android:textColor="@color/text"
                 android:textSize="20dp"
-                android:text="TextView" />
+                android:hint="@string/scoreTeamB"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/date_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/team_scores"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:gravity="start|top"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/details"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/update_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/box_bis"
+                android:background="@color/background"
+                android:text="@string/update"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"/>
+
+
+        </LinearLayout>
 
 
     </RelativeLayout>

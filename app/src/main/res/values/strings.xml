@@ -6,4 +6,11 @@
     <string name="match">Score Table</string>
     <string name="last_matches">Last Matches</string>
     <string name="title_activity_maps">Map</string>
+    <string name="update">Update</string>
+    <string name="teamA">Team A</string>
+    <string name="teamB">Team B</string>
+    <string name="scoreTeamA">Score A</string>
+    <string name="scoreTeamB">Score B</string>
+    <string name="date">Date</string>
+    <string name="details">Remarks</string>
 </resources>
