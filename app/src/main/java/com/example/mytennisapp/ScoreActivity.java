@@ -70,7 +70,7 @@ public class ScoreActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int item) {
                         if(item == 0){
-                            //Code Vidéo 2/3 à 10:08
+                            //update
                             Cursor c = MainActivity.sqLiteHelper.getData("SELECT id FROM MATCH");
                             ArrayList<Integer> arrID = new ArrayList<Integer>();
                             while(c.moveToNext()){
@@ -79,8 +79,13 @@ public class ScoreActivity extends AppCompatActivity {
                             showDialogUpdate(ScoreActivity.this, arrID.get(i));
                         }
                         else{
-                            //details
-                            Toast.makeText(getApplicationContext(), "Delete", Toast.LENGTH_SHORT).show();
+                            //delete
+                            Cursor c = MainActivity.sqLiteHelper.getData("SELECT id FROM MATCH");
+                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            while(c.moveToNext()){
+                                arrID.add(c.getInt(0));
+                            }
+                            showDialogDelete(arrID.get(i));
                         }
                     }
                 });
@@ -152,6 +157,35 @@ public class ScoreActivity extends AppCompatActivity {
                 updateScoreActivity();
             }
         });
+    }
+
+    private void showDialogDelete(final int matchID){
+        final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(ScoreActivity.this);
+
+        dialogDelete.setTitle("Delete ?");
+        dialogDelete.setPositiveButton("O", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                try{
+                    //fonction codée Vidéo 3/3  -  5:38
+                    MainActivity.sqLiteHelper.deleteMatch(matchID);
+                    Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                }
+                catch(Exception e){
+                    Log.e("Erreur", e.getMessage());
+                }
+                updateScoreActivity();
+            }
+        });
+
+        dialogDelete.setNegativeButton("X", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        dialogDelete.show();
     }
 
     private void updateScoreActivity(){
