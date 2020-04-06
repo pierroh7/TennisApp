@@ -4,7 +4,7 @@
     <string name="photos">Appareil photo</string>
     <string name="match">Tableau des scores</string>
     <string name="last_matches">Derniers Matchs</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="location">Vois sur la carte</string>
     <string name="update">Mettre à jour</string>
     <string name="teamA">Equipe A</string>
     <string name="teamB">Equipe B</string>

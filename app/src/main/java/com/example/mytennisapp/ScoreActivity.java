@@ -10,7 +10,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.service.autofill.FieldClassification;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +30,7 @@ public class ScoreActivity extends AppCompatActivity {
     GridView gridview;
     ArrayList<Match> list;
     MatchListAdapter adapter = null;
+    Match match = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +58,12 @@ public class ScoreActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
-        gridview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        //J'ai mis un simple Onclick en fait
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
-                CharSequence[] items = {"Update", "Delete"};
+                CharSequence[] items = {"Update", "Delete", "Info"};
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(ScoreActivity.this);
 
                 dialog.setTitle("Action");
@@ -78,7 +79,7 @@ public class ScoreActivity extends AppCompatActivity {
                             }
                             showDialogUpdate(ScoreActivity.this, arrID.get(i));
                         }
-                        else{
+                        else if (item == 1){
                             //delete
                             Cursor c = MainActivity.sqLiteHelper.getData("SELECT id FROM MATCH");
                             ArrayList<Integer> arrID = new ArrayList<Integer>();
@@ -87,10 +88,28 @@ public class ScoreActivity extends AppCompatActivity {
                             }
                             showDialogDelete(arrID.get(i));
                         }
+
+                        else{
+                            //details
+                            Cursor c = MainActivity.sqLiteHelper.getData("SELECT * FROM MATCH");
+                            while(c.moveToNext()){
+                                int id = c.getInt(0);
+                                String nameA = c.getString(1);
+                                String nameB = c.getString(2);
+                                int scoreA = c.getInt(3);
+                                int scoreB = c.getInt(4);
+                                byte [] matchPicture = c.getBlob(5);
+                                String date = c.getString(6);
+                                String location = c.getString(7);
+                                String details = c.getString(8);
+
+                                match = new Match(id, nameA, nameB, scoreA, scoreB, matchPicture, date, location, details);
+                            }
+                            showDialogDetails(ScoreActivity.this, match);
+                        }
                     }
                 });
                 dialog.show();
-                return true;
             }
         });
     }
@@ -186,6 +205,12 @@ public class ScoreActivity extends AppCompatActivity {
         });
 
         dialogDelete.show();
+    }
+
+    private void showDialogDetails(Activity activity, Match match){
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.match_detailed_activity);
+        dialog.setTitle("Details");
     }
 
     private void updateScoreActivity(){
