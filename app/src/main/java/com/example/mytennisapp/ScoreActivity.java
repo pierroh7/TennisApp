@@ -138,8 +138,8 @@ public class ScoreActivity extends AppCompatActivity {
 
 
         //width & height for dialog
-        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
-        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7);
+        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95); //Dimension à vérifier
+        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7); //Dimension à vérifier
         dialog.getWindow().setLayout(width, height);
         dialog.show();
 
@@ -251,8 +251,8 @@ public class ScoreActivity extends AppCompatActivity {
         });
 
         //width & height for dialog
-        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
-        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7);
+        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95); //Dimension à vérifier
+        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7); //Dimension à vérifier
         dialog.getWindow().setLayout(width, height);
         dialog.show();
     }
