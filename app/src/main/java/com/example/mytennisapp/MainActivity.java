@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         //map = findViewById(R.id.map);
-        photo = findViewById(R.id.photo);
         score = findViewById(R.id.score);
         add = findViewById(R.id.add);
 

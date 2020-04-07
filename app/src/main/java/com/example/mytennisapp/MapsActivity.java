@@ -14,11 +14,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps2);
+        setContentView(R.layout.activity_maps);
+
+        //Récupération de la valeur passée en param
+        Bundle b = getIntent().getExtras();
+        location = b.getString("matchLocation");
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -38,10 +44,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        LatLng matchPlace = null;
+
+        //Add other Stadium locations + lat & lng
+        switch(location){
+            case "philadeplhie":
+                matchPlace= new LatLng(48.852120, 2.286220);
+                break;
+
+            case "brooklyn":
+                matchPlace= new LatLng(47.852120, 2.286220);
+                break;
+        }
 
         // Add a marker in Sydney and move the camera
-        LatLng ece = new LatLng(48.852120, 2.286220);
-        mMap.addMarker(new MarkerOptions().position(ece).title("You are here"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ece, 15F));
+        assert matchPlace != null;
+        mMap.addMarker(new MarkerOptions().position(matchPlace).title("Location"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(matchPlace, 15F));
     }
 }

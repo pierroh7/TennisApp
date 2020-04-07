@@ -8,7 +8,10 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -207,10 +211,50 @@ public class ScoreActivity extends AppCompatActivity {
         dialogDelete.show();
     }
 
-    private void showDialogDetails(Activity activity, Match match){
+    private void showDialogDetails(Activity activity, final Match match){
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.match_detailed_activity);
         dialog.setTitle("Details");
+
+        matchPicture = dialog.findViewById(R.id.match_picture);
+        final TextView teamA = dialog.findViewById(R.id.team_name_a);
+        final TextView teamB = dialog.findViewById(R.id.team_name_b);
+        final TextView scoreA = dialog.findViewById(R.id.score_team_a);
+        final TextView scoreB = dialog.findViewById(R.id.score_team_b);
+        final TextView date = dialog.findViewById(R.id.date);
+        final TextView location = dialog.findViewById(R.id.location);
+        final TextView details = dialog.findViewById(R.id.details);
+        Button map = dialog.findViewById(R.id.map_button);
+
+        byte [] match_picture = match.getMatchPicture();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(match_picture, 0, match_picture.length);
+        matchPicture.setImageBitmap(bitmap);
+
+        teamA.setText(match.getTeamNameA());
+        teamB.setText(match.getTeamNameB());
+        scoreA.setText(match.getScoreA());
+        scoreB.setText(match.getScoreB());
+        date.setText(match.getDate());
+        location.setText(match.getLocation());
+        details.setText(match.getDetails());
+
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ScoreActivity.this, MapsActivity.class);
+                //Passage de la localisation du match
+                Bundle b = new Bundle();
+                b.putString("matchLocation", match.getLocation());
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
+
+        //width & height for dialog
+        int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
+        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7);
+        dialog.getWindow().setLayout(width, height);
+        dialog.show();
     }
 
     private void updateScoreActivity(){
